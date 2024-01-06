@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tigray Jobs</title>
     <link href="style/bootstrap.min.css" rel="stylesheet"/>
+    <link href="style/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
     <script src="style/bootstrap.bundle.js" defer></script>
 </head>
 <body>
     <!--This is will be the nav bar along with the Title Tigray jobs-->
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm shadow-sm mb-1 sticky-top bg-white">
         <div class="container my-3">
             <a class="navbar-brand" href="index.html">Tigray Jobs</a>
             <ul class="navbar-nav">
@@ -20,6 +21,97 @@
             </ul>
         </div>
     </nav>
+
+    <div class="shadow-lg" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(back.jpg);">
+        <div id="carouselExampleControls" class="carousel slide mb-5" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="display-5 text-center mt-5">Easy to search for your dream job.</div>
+              </div>
+              <div class="carousel-item">
+                <div class="display-5 text-center mt-5">Easy to apply for a job.</div>
+              </div>
+              <div class="carousel-item">
+                <div class="display-5 text-center mt-5">Easy to post a job.</div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+          <!--Search jobs section-->
+        <div class="container bg-white rounded-2 p-3 px-5 mt-5" style="width: 65%;">
+                <div class="row">
+                    <input class="form-control col-md mx-2 my-1" placeholder="Input here"/>
+                    <input class="form-control col-md mx-2 my-1"/>
+                    <input class="form-control col-md mx-2 my-1"/>
+                    <input type="button" class="col-md btn btn-primary mx-2 py-3 my-1" value="Search">
+                </div>
+        </div>
+    
+
+        <div style="min-height: 300px;" class="row w-75 m-auto mt-5 ">
+            <div class="col-md shadow-lg rounded-5 m-5 bg-white pb-4">
+                <div class="m-2 display-6">Job Seeker</div>
+                <button type="button" class="btn btn-primary m-3 w-75">
+                    <i class="fa fa-user-plus m-3 fa-2x"></i>Register As Job Seeker</button><br>
+                <button type="button" class="btn btn-primary m-3 w-75">
+                    <i class="fa fa-sign-in m-3 fa-2x"></i>Login As Job Seeker</button>
+            </div>
+            <div class="col-md shadow-lg rounded-5 m-5 bg-white pb-4">
+                <div class="m-2 display-6">Employer</div>
+                <button type="button" class="btn btn-primary m-3 w-75">
+                    <i class="fa fa-user-plus m-3 fa-2x"></i>Register As Employer</button><br>
+                <button type="button" class="btn btn-primary m-3 w-75">
+                    <i class="fa fa-sign-in m-3 fa-2x"></i>Login As Employer</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!--This is for the all the links of the webpage-->
+        <div class="container m-auto my-5">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h1>Contact Us</h1>
+                    <div><i class="fa fa-map-marker fa-2x"></i><p class="d-inline-block fw-bolder">Ethiopia, Mekelle - Mekelle University</p></div>
+                    <div><i class="fa fa-phone fa-lg"></i><p class="d-inline-block fw-bolder">+251933250034</p></div>
+                    <div><i class="fa fa-envelope fa-lg"></i><p class="d-inline-block fw-bolder">TJ123@gmail.com</p></div>
+                </div>
+                <div class="col-lg-4 lead">
+                    <h1>Mission</h1>
+                    <p>Our mission is to help job seekers find their dream job and help Employers find the best candidates.</p>
+                </div> 
+            </div>
+        </div>
+    
+
+
+    <!--For the newsletter-->
+    <div class="p-3">
+        <div class="m-2 input-group mb-3 w-75 m-auto">
+            <label class="input-group-text" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">Subscribe to our newsletter</label>
+            <input class="form-control" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;" type="email"/>
+            <input type="button" class="btn btn-primary" value="subscribe"/>
+        </div> 
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p>
+                    Tigray Jobs, Copyright &copy; 2014 all rights reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+ 
+
+
 
     <!--This will be a message and a search jobs functionality-->
     <div>
