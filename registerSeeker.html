@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tigray Jobs</title>
+    <link href="style/bootstrap.min.css" rel="stylesheet"/>
+    <link href="style/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="style/style.css" rel="stylesheet"/>
+    <script src="style/bootstrap.bundle.js" defer></script>
+</head>
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-sm shadow-sm mb-1 sticky-top bg-white">
+        <div class="container my-2">
+            <a class="navbar-brand" href="index.html">Tigray Jobs</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-4"><a class="nav-link" href="index.html">
+                        <i class="fa fa-home fa-lg"></i>Home</a></li>
+                    <li class="nav-item mx-4"><a class="nav-link" href="#">
+                        <i class="fa fa-tasks fa-lg"></i>Jobs</a></li>
+                    <li class="nav-item mx-4"><a class="nav-link" href="#">
+                        <i class="fas fa-instagram fa-lg"></i>Our Blog</a></li>
+                    <li class="nav-item mx-4"><a class="nav-link" href="#">
+                        <i class="fa fa-phone fa-lg"></i>About Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="shadow-lg p-5" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(images/back.jpg);">
+        <!--For Registration-->
+        <div class="container shadow-lg p-5 rounded-5" style="background-color: rgba(255, 255, 255, 0.85);">
+            <h1 class="display-5 mb-5">Your Journey of being hired begins NOW.</h1>
+            <form id="registrationForm">
+                <div class="row">
+                    <fieldset id="personal" class="col-md">
+                        <legend>Personal Info</legend>
+                        <div class="mb-3">
+                            <div>Full Name</div>
+                            <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                                <label class="input-group-text">First Name</label>
+                                <input id="firstName" class="form-control" type="text" required placeholder="e.g Samuel">
+                            </div>
+                            <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                                <label class="input-group-text">Last Name</label>
+                                <input id="lastName" class="form-control" type="text" required placeholder="e.g Gebremariam">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div>Contact Info</div>
+                            <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                                <label class="input-group-text">Email</label>
+                                <input id="email" class="form-control" type="email"  required placeholder="e.g sample@gmail.com"/>
+                            </div>
+                            <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                                <label class="input-group-text">Phone No</label>
+                                <input id="phoneNumber" class="form-control" type="text"  placeholder="e.g 0914004426 or 251914004426">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div>Account Info</div>
+                            <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                                <label class="input-group-text">UserName</label>
+                                <input id="userName" type="text" class="form-control"  required/>
+                            </div>
+                            <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                                <label class="input-group-text">Password</label>
+                                <input id="password" class="form-control" type="password" required minlength="8">
+                            </div>
+                            <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                                <label class="input-group-text">Confirm Password</label>
+                                <input id="confirmPassword" class="form-control" type="password" required minlength="8">
+                            </div>
+                            <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                                <label class="input-group-text">Profile Picture</label> 
+                                <input class="form-control" id="profilePicture" type="file" accept="image/png, image/jpeg"/>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div>Location Info</div>
+                            <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                                <label class="input-group-text">Region</label>
+                                <select id="region" class="form-select">
+                                    <option>Addis Ababa</option>
+                                    <option>Afar</option>
+                                    <option>Amhara</option>
+                                    <option>Benshangul Gumuz</option>
+                                    <option>Dire Dawa</option>
+                                    <option>Gambela</option>
+                                    <option>Harer</option>
+                                    <option>Oromo</option>
+                                    <option>Sidama</option>
+                                    <option>Somali</option>
+                                    <option selected>Tigray</option>
+                                    <option>SNNPR</option>
+                                    <option>South West Peoples</option>
+                                </select>
+                            </div>
+                            <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                                <label class="input-group-text">City Name</label>
+                                <input id="cityName" class="form-control" type="text">
+                            </div>
+                        </div>
+                    </fieldset>
+    
+                    <fieldset id="educationprofession" class="col-md">
+                        <legend>Education And Profession</legend>
+                        <div>Education Section</div>
+                        <div>
+                            <div class="mb-3">
+                                <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                                    <label class="input-group-text">Field Of Study</label>
+                                    <input id="studyField" class="form-control" type="text"  >
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                                    <label class="input-group-text">Highest Education Level</label>  
+                                    <select id="educationLevel" class="form-select">
+                                        <option>Primary School</option>
+                                        <option>High School</option>
+                                        <option>Diploma</option>
+                                        <option selected>Bachelor's Degree</option>
+                                        <option>Master's Degree</option>
+                                        <option>Doctrate</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div>Profession Section</div>
+                        <div>
+                            <div class="mb-3">
+                                <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                                    <label class="input-group-text">Main Profession</label>
+                                    <input id="profession" class="form-control" type="text"  />
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                                    <label class="input-group-text">Experience Level</label>
+                                    <select id="experience" class="form-select">
+                                        <option selected>Entry Level (Fresh Graduate)</option>
+                                        <option>Junior Level (1-2 years Experience)</option>
+                                        <option>Mid Level (2-5 years Experience)</option>
+                                        <option>Senior Level (5+ years Experience)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <input id="registrationSubmit" type="submit" class="btn btn-primary p-3 px-5 h2" value="Submit"/>
+            </form>
+            
+
+        </div>
+    </div>
+
+
+    <!--This is for the all the links of the webpage-->
+    <div class="container m-auto my-5">
+        <div class="row">
+            <div class="col-lg-4">
+                <h1>Contact Us</h1>
+                <div><i class="fa fa-map-marker fa-2x"></i><p class="d-inline-block fw-bolder">Ethiopia, Mekelle - Mekelle University</p></div>
+                <div><i class="fa fa-phone fa-lg"></i><p class="d-inline-block fw-bolder">+251933250034</p></div>
+                <div><i class="fa fa-envelope fa-lg"></i><p class="d-inline-block fw-bolder">TJ123@gmail.com</p></div>
+            </div>
+            <div class="col-lg-4 lead">
+                <h1>Mission</h1>
+                <p>Our mission is to help job seekers find their dream job and help Employers find the best candidates.</p>
+            </div> 
+        </div>
+    </div>
+
+
+
+    <!--For the newsletter-->
+    <div class="p-3 mb-0" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(images/back.jpg);">
+        <div class="m-2 input-group my-4 w-75 m-auto">
+            <label class="input-group-text" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">Subscribe to our newsletter</label>
+            <input class="form-control w-50" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;" type="email"/>
+            <input type="button" class="btn btn-primary" value="subscribe"/>
+        </div> 
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p>
+                    Tigray Jobs, Copyright &copy; 2014 all rights reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="errorCorrection">
+        <div id="innerFlex">
+            <div id="errorMessage" class="h4 p-5 rounded-3 bg-dark text-light opacity-75" style="position: relative; max-width: 70%;">
+                <span id="closeButton" class="btn btn-lg btn-outline-danger p-0 px-2" style="position: absolute; top: 10px; right: 10px;">x</span>
+                <div id="errorContent"></div>
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="registration.js" type="module"></script>
+</body>
+</html>
