@@ -2,6 +2,8 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
   import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
   import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
+  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
 
 
   // Your web app's Firebase configuration
@@ -16,6 +18,7 @@
 // Initialize Firebase & getting the database reference
 const app = initializeApp(firebaseConfig);
 const database = getDatabase();
+const auth = getAuth();
 
 var allFormValues, profilePictureUrl;
 //after loading - add event listener for the registration, and for the pop up close button
@@ -69,30 +72,42 @@ function uploadFile(){
 
 
 function writeUserData() {
-    var userName = allFormValues[4]; //this will be used as the identification method of the user
-    console.log("form values 4 is "+userName)
-    if(profilePictureUrl == null){
-        profilePictureUrl = "https://firebasestorage.googleapis.com/v0/b/tigrayjobs-3f65f.appspot.com/o/images%2Favatar.jpg?alt=media&token=c8916d9a-7d40-4943-96fa-773a34376e54";
-    }
-    set(ref(database, 'users/'+userName), {
-        firstName: allFormValues[0],
-        lastName: allFormValues[1],
-        phoneNumber: allFormValues[3],
-        emailAddress: allFormValues[2],
-        password: allFormValues[5],
-        region: allFormValues[7],
-        cityName: allFormValues[8],
-        studyField: allFormValues[9],
-        educationLevel: allFormValues[10],
-        profession: allFormValues[11],
-        experience: allFormValues[12],
-        preferences: "",
-        profilePicture: profilePictureUrl
 
-    }).then((ob)=>{
-        alert("Account created Successfully.");
-        allFormValues = null; //to remove all the elements data
-    });
+    //get the email and password from the formValues array
+    var email = allFormValues[2];
+    var password = allFormValues[5];
+
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {        
+        var userId = userCredential.user.uid;
+        if(profilePictureUrl == null){
+            profilePictureUrl = "https://firebasestorage.googleapis.com/v0/b/tigrayjobs-3f65f.appspot.com/o/images%2Favatar.jpg?alt=media&token=c8916d9a-7d40-4943-96fa-773a34376e54";
+         }
+        set(ref(database, 'users/'+userId), {
+            firstName: allFormValues[0],
+            lastName: allFormValues[1],
+            phoneNumber: allFormValues[3],
+            region: allFormValues[7],
+            cityName: allFormValues[8],
+            studyField: allFormValues[9],
+            educationLevel: allFormValues[10],
+            profession: allFormValues[11],
+            experience: allFormValues[12],
+            preferences: "",
+            profilePicture: profilePictureUrl
+
+        }).then((ob)=>{
+            alert("Account created Successfully.");
+        });
+
+        alert("Created user successfully");
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log("There was an error "+error);
+        // ..
+    });  
 
 }
 
