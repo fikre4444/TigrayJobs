@@ -1,15 +1,16 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+  import { getDatabase, ref, set, push, get, child } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
   import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
   import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 
 
-  // Your web app's Firebase configuration
+// Your web app's Firebase configuration
   const firebaseConfig = {
     apiKey: "AIzaSyC0HyuVn6tutXp83EA782SR9kx8D0HC704",
     authDomain: "tigrayjobs-3f65f.firebaseapp.com",
+    databaseURL: "https://tigrayjobs-3f65f-default-rtdb.firebaseio.com",
     projectId: "tigrayjobs-3f65f",
     storageBucket: "tigrayjobs-3f65f.appspot.com",
     messagingSenderId: "514987892658",
@@ -18,7 +19,7 @@
 // Initialize Firebase & getting the database reference
 const app = initializeApp(firebaseConfig);
 const database = getDatabase();
-const auth = getAuth();
+const auth = getAuth();                                                 
 
 var allFormValues, profilePictureUrl;
 //after loading - add event listener for the registration, and for the pop up close button
@@ -78,8 +79,8 @@ function writeUserData() {
     var password = allFormValues[5];
 
     createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {        
-        var userId = userCredential.user.uid;
+    .then((credentials) => {        
+        var userId = credentials.user.uid;
         if(profilePictureUrl == null){
             profilePictureUrl = "https://firebasestorage.googleapis.com/v0/b/tigrayjobs-3f65f.appspot.com/o/images%2Favatar.jpg?alt=media&token=c8916d9a-7d40-4943-96fa-773a34376e54";
          }
@@ -87,6 +88,7 @@ function writeUserData() {
             firstName: allFormValues[0],
             lastName: allFormValues[1],
             phoneNumber: allFormValues[3],
+            userName: allFormValues[4],
             region: allFormValues[7],
             cityName: allFormValues[8],
             studyField: allFormValues[9],
@@ -98,15 +100,25 @@ function writeUserData() {
 
         }).then((ob)=>{
             alert("Account created Successfully.");
+            var databaseRef = ref(database);
+            get(child(databaseRef, 'users/'+credentials.user.uid)).then((snapshot)=>{
+                if(snapshot.exists){
+                    var userInfo = JSON.stringify(snapshot.val());
+                    sessionStorage.setItem("seekerInfo", userInfo);
+                    sessionStorage.setItem("seekerCreds", JSON.stringify(credentials.user));
+                    document.location.href="seeker/seekerPage.html";
+                }else{
+                    alert("snapshot doesn't exist");
+                }
+            });
         });
 
-        alert("Created user successfully");
+        console.log("Created the User successfully. With Email/Password.");
     })
     .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log("There was an error "+error);
-        // ..
+        if(error.code == 'auth/email-already-in-use'){
+            alert("Sorry! This email is already in use. Try another.");
+        }
     });  
 
 }

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tigary Jobs</title>
+    <link href="style/bootstrap.min.css" rel="stylesheet"/>
+    <link href="style/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="style/style.css" rel="stylesheet"/>
+    <script src="style/bootstrap.bundle.js" defer></script>
+</head>
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-sm shadow-sm mb-1 sticky-top bg-white">
+        <div class="container my-2">
+            <a class="navbar-brand" href="index.html">Tigray Jobs</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-4"><a class="nav-link" href="index.html">
+                        <i class="fa fa-home fa-lg"></i>Home</a></li>
+                    <li class="nav-item mx-4"><a class="nav-link" href="#">
+                        <i class="fa fa-tasks fa-lg"></i>Jobs</a></li>
+                    <li class="nav-item mx-4"><a class="nav-link" href="#">
+                        <i class="fas fa-instagram fa-lg"></i>Our Blog</a></li>
+                    <li class="nav-item mx-4"><a class="nav-link" href="#">
+                        <i class="fa fa-phone fa-lg"></i>About Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <div class="shadow-lg p-5" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(images/back.jpg);">
+        <!--For Logging in-->
+        <div class="container shadow-lg p-5 rounded-5 w-50" style="background-color: rgba(255, 255, 255, 0.85);">
+            <form id="loginForm">
+                <div class="row">
+                    <fieldset class="col-md">
+                        <div class="mb-3">
+                            <div class="display-6">Login</div>
+                            <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                                <label class="input-group-text">Email Address:</label>
+                                <input id="email" class="form-control" type="email" required placeholder="input your email here">
+                            </div>
+                            <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                                <label class="input-group-text">Password</label>
+                                <input id="password" class="form-control" type="password" required placeholder="input your password here">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <input id="registrationSubmit" type="submit" class="btn btn-primary p-3 px-5 h2" value="Login"/>
+            </form>
+            
+
+        </div>
+    </div>
+
+
+
+
+     <!--This is for the all the links of the webpage-->
+     <div class="container m-auto my-5">
+        <div class="row">
+            <div class="col-lg-4">
+                <h1>Contact Us</h1>
+                <div><i class="fa fa-map-marker fa-2x"></i><p class="d-inline-block fw-bolder">Ethiopia, Mekelle - Mekelle University</p></div>
+                <div><i class="fa fa-phone fa-lg"></i><p class="d-inline-block fw-bolder">+251933250034</p></div>
+                <div><i class="fa fa-envelope fa-lg"></i><p class="d-inline-block fw-bolder">TJ123@gmail.com</p></div>
+            </div>
+            <div class="col-lg-4 lead">
+                <h1>Mission</h1>
+                <p>Our mission is to help job seekers find their dream job and help Employers find the best candidates.</p>
+            </div> 
+        </div>
+    </div>
+
+
+
+    <!--For the newsletter-->
+    <div class="p-3 mb-0" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(images/back.jpg);">
+        <div class="m-2 input-group my-4 w-75 m-auto">
+            <label class="input-group-text" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">Subscribe to our newsletter</label>
+            <input class="form-control w-50" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;" type="email"/>
+            <input type="button" class="btn btn-primary" value="subscribe"/>
+        </div> 
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p>
+                    Tigray Jobs, Copyright &copy; 2014 all rights reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="login.js" type="module"></script>
+</body>
+</html>
