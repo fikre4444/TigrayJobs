@@ -11,7 +11,7 @@
 <body>
     <!--This is will be the nav bar along with the Title Tigray jobs-->
     <nav class="navbar navbar-expand-sm shadow-sm mb-1 sticky-top bg-white">
-        <div class="container my-3">
+        <div class="container my-2">
             <a class="navbar-brand" href="index.html">Tigray Jobs</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
                 <span class="navbar-toggler-icon"></span>
@@ -31,7 +31,7 @@
         </div>
     </nav>
 
-    <div class="shadow-lg" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(back.jpg);">
+    <div class="shadow-lg" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(images/back.jpg);">
         <div id="carouselExampleControls" class="carousel slide mb-5 pb-5" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -81,14 +81,14 @@
     
 
         <div style="min-height: 300px;" class="row w-75 m-auto mt-5">
-            <div class="col-md shadow-lg rounded-5 m-5 bg-white me-3 pb-4 mx-auto">
+            <div class="col-md shadow-lg rounded-5 m-5 me-3 pb-4 mx-auto" style="background-color: rgba(255, 255, 255, 0.7);">
                 <div class="m-2 display-6">Job Seeker</div>
-                <button type="button" class="btn btn-primary m-3 w-75">
+                <button type="button" class="btn btn-primary m-3 w-75" onclick="location.href='registerSeeker.html'">
                     <i class="fa fa-user-plus m-3 fa-2x"></i>Register As Job Seeker</button><br>
                 <button type="button" class="btn btn-primary m-3 w-75">
                     <i class="fa fa-sign-in m-3 fa-2x"></i>Login As Job Seeker</button>
             </div>
-            <div class="col-md shadow-lg rounded-5 m-5 bg-white pb-4 mx-auto">
+            <div class="col-md shadow-lg rounded-5 m-5 pb-4 mx-auto" style="background-color: rgba(255, 255, 255, 0.7);">
                 <div class="m-2 display-6">Employer</div>
                 <button type="button" class="btn btn-primary m-3 w-75">
                     <i class="fa fa-user-plus m-3 fa-2x"></i>Register As Employer</button><br>
@@ -118,8 +118,8 @@
 
 
     <!--For the newsletter-->
-    <div class="p-3" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(back.jpg);">
-        <div class="m-2 input-group mb-3 w-75 m-auto">
+    <div class="p-3" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(images/back.jpg);">
+        <div class="m-2 input-group my-4 w-75 m-auto">
             <label class="input-group-text" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">Subscribe to our newsletter</label>
             <input class="form-control w-50" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;" type="email"/>
             <input type="button" class="btn btn-primary" value="subscribe"/>
