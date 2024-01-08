@@ -1,24 +1,24 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
   import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
-  import { getStorage, ref as refStorage, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
+  import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
-    apiKey: "AIzaSyCwJMJKfYs3pg6TKTRlFR5wvNn0ySxq_bM",
-    authDomain: "wrud-9476f.firebaseapp.com",
-    databaseURL: "https://wrud-9476f-default-rtdb.firebaseio.com",
-    projectId: "wrud-9476f",
-    storageBucket: "wrud-9476f.appspot.com",
-    messagingSenderId: "547648238509",
-    appId: "1:547648238509:web:39eb7519d3966c29fee724"
-};
-// Initialize Firebase
+    apiKey: "AIzaSyC0HyuVn6tutXp83EA782SR9kx8D0HC704",
+    authDomain: "tigrayjobs-3f65f.firebaseapp.com",
+    projectId: "tigrayjobs-3f65f",
+    storageBucket: "tigrayjobs-3f65f.appspot.com",
+    messagingSenderId: "514987892658",
+    appId: "1:514987892658:web:afbc1d249b022604624eab"
+  };
+// Initialize Firebase & getting the database reference
 const app = initializeApp(firebaseConfig);
+const database = getDatabase();
 
-//const database = getDatabase(app);
-
+var allFormValues, profilePictureUrl;
+//after loading - add event listener for the registration, and for the pop up close button
 window.onload = function(){
     var form = document.getElementById("registrationForm");
     form.addEventListener("submit", handleRegistration);
@@ -32,49 +32,66 @@ window.onload = function(){
     profilePicture.addEventListener("change", getFile);
 }
 
+
+//used for getting the profile picture so it can be uploded later
+//it is stored in a global variable so that we can use it later in the upload file function
 var fileItem, fileName;
 function getFile(e){
-    console.log("hello my nigga");
+    console.log("picture captured.");
     fileItem = e.target.files[0];
-    fileName = fileItem.name;  
+    var extension = fileItem.name.split('.').pop(); //gets the extension of the file
+    fileName = crypto.randomUUID()+'.'+extension; //generates a new name for the file to be uploaded to avoid conflicting names.
+}
+
+
+function registerUser(){
+    if(fileItem != null){ //if a picture has been captured then we need to upload
+        uploadFile(); //uploads the profile pic and then calls write the user data with the profile pic url
+    }
+    else{
+        writeUserData(); //just calls the writeUserData and then so that the avatar's url is the default url.
+    }
 }
 
 function uploadFile(){
-    var storage = getStorage();
-    var imageRef = refStorage(storage, "images/"+fileName);
+    var storage = getStorage(); //gets the storage 
+    var imageRef = storageRef(storage, "images/"+fileName); //using the storage get a refernce to the images folder
+    //then upload the image content
     uploadBytes(imageRef, fileItem).then((snapshot) => {
+        getDownloadURL(imageRef).then((url)=>{
+            //writeUserData(formValues, url);
+            profilePictureUrl = url;
+            writeUserData();
+        });
     });
 
-    // var storageRef = refStorage("images/"+fileName);
-    // var uploadTask = storageRef.put(fileItem);
-
-    // uploadTask.on("state_changed", (snapshot)=>{}, (error)=>{console.log("error is error");}, ()=>{
-    //     uploadTask.snapshot.ref.getDownloadURL().then((url)=>{
-    //         console.log("url is "+url);
-    //     })
-    // });
 }
 
 
-function writeUserData(formValues) {
-    const db = getDatabase();
-    push(ref(db, 'users/'), {
-        firstName: formValues[0],
-        lastName: formValues[1],
-        email: formValues[2],
-        phoneNumber: formValues[3],
-        userName: formValues[4],
-        password: formValues[5],
-        confirmPassword: formValues[6],
-        region: formValues[7],
-        cityName: formValues[8],
-        studyField: formValues[9],
-        educationLevel: formValues[10],
-        profession: formValues[11],
-        experience: formValues[12]
+function writeUserData() {
+    var userName = allFormValues[4]; //this will be used as the identification method of the user
+    console.log("form values 4 is "+userName)
+    if(profilePictureUrl == null){
+        profilePictureUrl = "https://firebasestorage.googleapis.com/v0/b/tigrayjobs-3f65f.appspot.com/o/images%2Favatar.jpg?alt=media&token=c8916d9a-7d40-4943-96fa-773a34376e54";
+    }
+    set(ref(database, 'users/'+userName), {
+        firstName: allFormValues[0],
+        lastName: allFormValues[1],
+        phoneNumber: allFormValues[3],
+        emailAddress: allFormValues[2],
+        password: allFormValues[5],
+        region: allFormValues[7],
+        cityName: allFormValues[8],
+        studyField: allFormValues[9],
+        educationLevel: allFormValues[10],
+        profession: allFormValues[11],
+        experience: allFormValues[12],
+        preferences: "",
+        profilePicture: profilePictureUrl
+
     }).then((ob)=>{
-        alert("I am the promise that was");
-        uploadFile();
+        alert("Account created Successfully.");
+        allFormValues = null; //to remove all the elements data
     });
 
 }
@@ -180,19 +197,16 @@ function handleRegistration(event){
     if(validated){
         console.log("validated");
         var ids = ["firstName", "lastName", "email", "phoneNumber", "userName", "password", "confirmPassword", "region", "cityName", "studyField", "educationLevel", "profession", "experience"];
-        var formElements = [];
+        var formElements = []; //stores the objects themselves not the values of the form inputs
         for(let i = 0; i < ids.length; i++){
             formElements[i] = document.getElementById(ids[i]);
         }
-    
-        if(validateUserInput(formElements)){
-            var formValues = [];
-            for(let i = 0; i < formElements.length; i++){
-                formValues[i] = formElements[i].value;
-            }
-            writeUserData(formValues);
+        var formValues = []; //stores the values of the form inputs
+        for(let i = 0; i < formElements.length; i++){
+            formValues[i] = formElements[i].value;
         }
-        console.log("regsitration is going on.")
+        allFormValues = formValues;
+        registerUser();
     }
     else{
         return;
