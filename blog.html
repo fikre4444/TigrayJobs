@@ -3,50 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tigary</title>
-    <link href="../style/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../style/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
-    <link href="../style/style.css" rel="stylesheet"/>
-    <script src="../style/bootstrap.bundle.js" defer></script>
+    <title>Our Blog</title>
+    <link href="style/bootstrap.min.css" rel="stylesheet"/>
+    <link href="style/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+    <script src="style/bootstrap.bundle.js" defer></script>
 </head>
 <body>
-     <!--Navbar-->
-     <nav class="navbar navbar-expand-sm shadow-sm mb-1 sticky-top bg-white">
+    <!--This is will be the nav bar along with the Title Tigray jobs-->
+    <nav class="navbar navbar-expand-sm shadow-sm mb-1 sticky-top bg-white">
         <div class="container my-2">
-            <a class="navbar-brand" href="../index.html">Tigray Jobs</a>
+            <a class="navbar-brand" href="index.html">Tigray Jobs</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-4"><a class="nav-link" href="../index.html">
+                    <li class="nav-item mx-4"><a class="nav-link" href="index.html">
                         <i class="fa fa-home fa-lg"></i>Home</a></li>
                     <li class="nav-item mx-4"><a class="nav-link" href="#">
                         <i class="fa fa-tasks fa-lg"></i>Jobs</a></li>
-                    <li class="nav-item mx-4"><a class="nav-link" href=../blog.html">
+                    <li class="nav-item mx-4"><a class="nav-link active" href="blog.html">
                         <i class="fas fa-instagram fa-lg"></i>Our Blog</a></li>
                     <li class="nav-item mx-4"><a class="nav-link" href="#">
                         <i class="fa fa-phone fa-lg"></i>About Us</a></li>
                 </ul>
             </div>
+
         </div>
     </nav>
 
 
-    <div class="shadow-lg p-5" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(../images/back.jpg); position: relative;">
-        <!--For Logging in-->
-        <div id="displayContent" class="container shadow-lg p-5 rounded-5 w-50" style="background-color: rgba(255, 255, 255, 0.85);">
 
+    <div class="shadow-lg p-5" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(images/back.jpg); position: relative;">
+        <!--For Logging in-->
+        <div id="displayContent" class="container shadow-lg p-5 rounded-5 text-center" style="background-color: rgba(255, 255, 255, 0.85);">
+            <div class="h3">
+                This is Our blog. This is where you can find news about our website.
+            </div>
 
         </div>
 
-        <button id="logoutButton" style="position: absolute; top: 10px; right: 10px;" class="btn btn-danger btn-lg">Logout</button>
-    </div>
+     </div>
 
 
 
-    <!--This is for the all the links of the webpage-->
-    <div class="container m-auto my-5">
+
+     <!--This is for the all the links of the webpage-->
+     <div class="container m-auto my-5">
         <div class="row">
             <div class="col-lg-4">
                 <h1>Contact Us</h1>
@@ -79,7 +82,5 @@
             </div>
         </div>
     </div>
-
-<script type="module" src="seeker.js"></script>
 </body>
 </html>

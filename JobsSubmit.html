@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Submission</title>
+    <link href="style/bootstrap.min.css" rel="stylesheet"/>
+    <link href="style/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+    <script src="style/bootstrap.bundle.js" defer></script>
+
+</head>
+<body>
+    <!--This is will be the nav bar along with the Title Tigray jobs-->
+    <nav class="navbar navbar-expand-sm shadow-sm mb-1 sticky-top bg-white">
+        <div class="container my-2">
+            <a class="navbar-brand" href="index.html">Tigray Jobs</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-4"><a class="nav-link" href="index.html">
+                        <i class="fa fa-home fa-lg"></i>Home</a></li>
+                    <li class="nav-item mx-4"><a class="nav-link" href="#">
+                        <i class="fa fa-tasks fa-lg"></i>Jobs</a></li>
+                    <li class="nav-item mx-4"><a class="nav-link active" href="blog.html">
+                        <i class="fas fa-instagram fa-lg"></i>Our Blog</a></li>
+                    <li class="nav-item mx-4"><a class="nav-link" href="#">
+                        <i class="fa fa-phone fa-lg"></i>About Us</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+
+
+    <div class="shadow-lg p-5" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(images/back.jpg);">
+        <!--For Posting a Job-->
+        <div class="container shadow-lg p-5 rounded-5" style="background-color: rgba(255, 255, 255, 0.85);">
+            <h1 class="display-5 mb-5">Input the fields and click Post!</h1>
+            <form id="jobFields">
+                    <fieldset>
+                        <div class="mb-3">
+                            <div>Input The Jobs Details Below</div>
+                            <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                                <label class="input-group-text">Job Name</label>
+                                <input id="jobName" class="form-control" required type="text" required placeholder="e.g UI/UX expert">
+                            </div>
+                        </div>
+                        <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                            <label class="input-group-text">Category</label>
+                            <select id="category" class="form-select">
+                                <option >Accounting and Finance</option>
+                                <option >Admin, Secretarial and Clerical</option>
+                                <option >Agriculture</option>
+                                <option >Automotive</option>
+                                <option >Banking and Insurance</option>
+                                <option >Pharmaceutical</option>
+                                <option >Business and Administration</option>
+                                <option >Business Development</option>
+                                <option >Consultancy and Training</option>
+                                <option >Creative Arts</option>
+                                <option >Customer Service</option>
+                                <option >Development and Project Management</option>
+                                <option >Economics</option>
+                                <option >Education</option>
+                                <option >Engineering</option>
+                                <option >Event Management</option>
+                                <option >Retail, Wholesale and Distribution</option>
+                                <option >Health Care</option>
+                                <option >Hotel and Hospitality</option>
+                                <option >Human Resource and Recruitment</option>
+                                <option >Information Technology</option>
+                                <option >Inventory and Stock</option>
+                                <option >Legal</option>
+                                <option >Logistics, Transport and Supply Chain</option>
+                                <option >Management</option>
+                                <option >Manufacturing</option>
+                                <option >Sales and Marketing</option>
+                                <option >Media and Journalism</option>
+                                <option >Environment and Natural Resource</option>
+                                <option >Natural Sciences</option>
+                                <option >Purchasing and Procurement</option>
+                                <option >Quality Assurance</option>
+                                <option >Research and Development</option>
+                                <option >Science and Technology</option>
+                                <option >Social Sciences and Community</option>
+                                <option >Warehouse, Supply Chain and Distribution</option>
+                                <option >Telecommunications</option>
+                                <option >Travel and Tourism</option>
+                                <option >Veterinary Services</option>
+                                <option >Water and Sanitation</option>
+                                <option >Advertising and Media</option>
+                                <option >Architecture and Construction</option>
+                                <option >Civil Service and Government</option>
+                                <option >Communications, PR and Journalism</option>
+                                <option >Community Service</option>
+                                <option >Entertainment</option>
+                                <option >Languages</option>
+                                <option >Maintenance</option>
+                                <option >Security</option>
+                                <option >Strategic Planning</option>
+                                <option >Energy</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <div>Job's Location</div>
+                            <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                                <label class="input-group-text">Region</label>
+                                <select id="region" class="form-select">
+                                    <option selected>Tigray</option>
+                                </select>
+                            </div>
+                            <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                                <label class="input-group-text">City Name</label>
+                                <input id="cityName" class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div>Other Info</div>
+                            <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                                <label class="input-group-text">Employment Type</label>
+                                <select id="employmentType" class="form-select">
+                                    <option selected>Full Time</option>
+                                    <option >Part Time</option>
+                                    <option >Internship</option>
+                                </select>
+                            </div>
+    
+                            <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                                <label class="input-group-text">Salary</label>
+                                <input id="salary" class="form-control" type="text" placeholder="Input a number or some statement related to salary">
+                            </div>
+    
+                            <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px; width: 25%;">
+                                <label class="input-group-text">Deadline</label>
+                                <input id="deadline" class="form-control" type="date" placeholder="Input a number or some statement related to salary">
+                            </div>
+    
+                            <div class="mb-3">
+                                <label class="form-label h4 fw-bold">Job Description</label>
+                                <textarea id = "jobDescription" class="form-control border-3 shadow-sm" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <input id="jobSubmit" type="submit" class="btn btn-primary p-3 px-5 h2" value="Post"/>
+            </form> 
+        </div>
+    </div>
+
+
+
+
+     <!--This is for the all the links of the webpage-->
+     <div class="container m-auto my-5">
+        <div class="row">
+            <div class="col-lg-4">
+                <h1>Contact Us</h1>
+                <div><i class="fa fa-map-marker fa-2x"></i><p class="d-inline-block fw-bolder">Ethiopia, Mekelle - Mekelle University</p></div>
+                <div><i class="fa fa-phone fa-lg"></i><p class="d-inline-block fw-bolder">+251933250034</p></div>
+                <div><i class="fa fa-envelope fa-lg"></i><p class="d-inline-block fw-bolder">TJ123@gmail.com</p></div>
+            </div>
+            <div class="col-lg-4 lead">
+                <h1>Mission</h1>
+                <p>Our mission is to help job seekers find their dream job and help Employers find the best candidates.</p>
+            </div> 
+        </div>
+    </div>
+
+
+
+    <!--For the newsletter-->
+    <div class="p-3 mb-0" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(images/back.jpg);">
+        <div class="m-2 input-group my-4 w-75 m-auto">
+            <label class="input-group-text" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">Subscribe to our newsletter</label>
+            <input class="form-control w-50" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;" type="email"/>
+            <input type="button" class="btn btn-primary" value="subscribe"/>
+        </div> 
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p>
+                    Tigray Jobs, Copyright &copy; 2014 all rights reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="jobs.js" type="module"></script>
+</body>
+</html>
