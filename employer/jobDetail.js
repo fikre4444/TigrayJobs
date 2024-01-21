@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
- import { getDatabase, ref, set, push, get, child, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+ import { getDatabase, ref, set, push, get, child, onValue, remove } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
  import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
@@ -49,20 +49,34 @@ function fillPage(){
         }
     }
 
-    var applyButton = document.getElementById("applyButton");
-    if(sessionStorage.getItem("loggedIn") != null){
-        applyButton.innerHTML = "Apply";
-        applyButton.addEventListener("click", goToApply);
-    }
-    else{
-        applyButton.innerHTML= "To Apply Log In";
-        applyButton.addEventListener("click", function(event){
-            document.location.href="loginSeeker.html"
-        })
-    }
+    var removeJob = document.getElementById("removeJob");
+    removeJob.addEventListener("click", removeTheJob);
+
+    var viewApplicants = document.getElementById("viewApplicants");
+    viewApplicants.addEventListener("click", viewTheApplicants);
+
 }
 
-function goToApply(event){
-    event.stopPropagation();
-    location.href = "apply.html";
+
+function removeTheJob(event){
+    var jobId = currentJob['jobId'];
+    console.log("job is is"+jobId);
+    var refToJob = ref(database, 'jobs/'+jobId);
+    remove(refToJob).then(()=>{
+        alert("Job Removed Successfully");
+        sessionStorage.removeItem("jobs");
+        location.href="postedJobs.html";
+
+    }).catch((error)=>{
+        alert("There was a problem removing the job.")
+    });
+
 }
+
+function viewTheApplicants(event){
+    event.stopPropagation();
+    var jobId = currentJob['jobId']
+    sessionStorage.setItem("currentJobId", jobId);
+    location.href="applicants.html";
+}
+

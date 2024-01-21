@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tigray Jobs</title>
+    <link href="../style/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../style/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+    <script src="../style/bootstrap.bundle.js" defer></script>
+    <script src="jobDetail.js" defer type="module"></script>
+</head>
+<body>
+    <!--This is will be the nav bar along with the Title Tigray jobs-->
+    <nav class="navbar navbar-expand-sm shadow-sm mb-1 sticky-top bg-white">
+        <div class="container my-2">
+            <a class="navbar-brand" href="index.html"><span class="fw-bolder h4">Tigray JobS</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-4"><a class="nav-link active" href="seekerPage.html">
+                        <i class="fa fa-home fa-lg"></i>User Dashboard</a></li>
+                    <li class="nav-item mx-4"><a class="nav-link active" href="jobs.html">
+                        <i class="fa fa-tasks fa-lg"></i>Jobs</a></li>
+                    <li class="nav-item mx-4"><a class="nav-link" href="blog.html">
+                        <i class="fas fa-instagram fa-lg"></i>AppliedJobs</a></li>
+                    <li class="nav-item mx-4">
+                        <button id="logoutButton" class="btn btn-danger">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="shadow-lg p-5 px-0" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(../images/back.jpg); position: relative;">
+        
+        <div id="displayContent" class="container  p-5 rounded-5" style="background-color: rgba(255, 255, 255, 0.85); display: none;">
+            <div class="row m-2">
+                <h1 class="col-md" id="jobsTitle">Detailed Info</h1> 
+                <button id="removeJob" type="button" class="col-md btn btn-danger p-2 mx-3">Remove Job</button>
+                <button id="viewApplicants" type="button" class="col-md btn btn-primary p-2 mx-3">View Applicants</button>
+                
+            </div>
+             
+            <div class="h3 fw-bolder row">
+                <div class="col-md p-2" style="background-color: rgba(178, 245, 206, 0.7);">
+                    Job Name
+                </div>
+                <div id="jobNameValue" class="col-md p-2" style="background-color: rgba(191, 203, 255, 0.7);">
+                    Some Job
+                </div>
+            </div>
+            <div class="h4 fw-bolder row">
+                <div class="col-md p-2" style="background-color: rgba(178, 245, 206, 0.7);">
+                    Company Name 
+                </div> 
+                <div id="companyValue" class="col-md p-2" style="background-color: rgba(191, 203, 255, 0.7);">
+                    Google
+                </div>
+            </div> 
+            <div class="h4 fw-bolder row">
+                <div class="col-md p-2" style="background-color: rgba(178, 245, 206, 0.7);">
+                    Job Category
+                </div> 
+                <div id="categoryValue" class="col-md p-2" style="background-color: rgba(191, 203, 255, 0.7);">
+                    General
+                </div>
+            </div> 
+            <div class="h4 fw-bolder row">
+                <div class="col-md p-2" style="background-color: rgba(178, 245, 206, 0.7);">
+                    Employment
+                </div> 
+                <div id="employmentTypeValue" class="col-md p-2" style="background-color: rgba(191, 203, 255, 0.7);">
+                    Part Time
+                </div>
+            </div> 
+            <div class="h4 fw-bolder row">
+                <div class="col-md p-2" style="background-color: rgba(178, 245, 206, 0.7);">
+                    Job Salary
+                </div> 
+                <div id="salaryValue" class="col-md p-2" style="background-color: rgba(191, 203, 255, 0.7);">
+                    30,000 Birr
+                </div>
+            </div> 
+            <div class="h4 fw-bolder row">
+                <div class="col-md p-2" style="background-color: rgba(178, 245, 206, 0.7);">
+                    Region 
+                </div> 
+                <div id="regionValue" class="col-md p-2" style="background-color: rgba(191, 203, 255, 0.7);">
+                    Tigray
+                </div>
+            </div>      
+            <div class="h4 fw-bolder row">
+                <div class="col-md p-2" style="background-color: rgba(178, 245, 206, 0.7);">
+                    City
+                </div> 
+                <div id="cityNameValue" class="col-md p-2" style="background-color: rgba(191, 203, 255, 0.7);">
+                    Mekelle
+                </div>
+            </div> 
+            <div class="h4 fw-bolder row">
+                <div class="col-md p-2" style="background-color: rgba(178, 245, 206, 0.7);">
+                    Deadline
+                </div> 
+                <div id="deadlineValue" class="col-md p-2" style="background-color: rgba(191, 203, 255, 0.7);">
+                    19-03-25
+                </div>
+            </div> 
+            <div class="p-3 h4 row" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7));">
+                <div class="h2 text-center">Job Description</div>
+                <div id="jobDescriptionValue">
+                    In this job you are going to do this, this and this.
+                </div>
+                
+            </div>
+
+        </div>
+
+     </div>
+
+    <!--This is for the all the links of the webpage-->
+        <div class="container m-auto my-5">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h1>Contact Us</h1>
+                    <div><i class="fa fa-map-marker fa-2x"></i><p class="d-inline-block fw-bolder">Ethiopia, Mekelle - Mekelle University</p></div>
+                    <div><i class="fa fa-phone fa-lg"></i><p class="d-inline-block fw-bolder">+251933250034</p></div>
+                    <div><i class="fa fa-envelope fa-lg"></i><p class="d-inline-block fw-bolder">TJ123@gmail.com</p></div>
+                </div>
+                <div class="col-lg-4 lead">
+                    <h1>Mission</h1>
+                    <p>Our mission is to help job seekers find their dream job and help Employers find the best candidates.</p>
+                </div> 
+            </div>
+        </div>
+    
+
+
+    <!--For the newsletter-->
+    <div class="p-3" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(../images/back.jpg);">
+        <div class="m-2 input-group my-4 w-75 m-auto">
+            <label class="input-group-text" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">Subscribe to our newsletter</label>
+            <input class="form-control w-50" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;" type="email"/>
+            <input type="button" class="btn btn-primary" value="subscribe"/>
+        </div> 
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p>
+                    Tigray Jobs, Copyright &copy; 2014 all rights reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

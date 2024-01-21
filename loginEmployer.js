@@ -44,6 +44,7 @@ function handleLogin(event){
                 sessionStorage.setItem("employerInfo", userInfo);
                 sessionStorage.setItem("employerCreds", JSON.stringify(credentials.user));
                 sessionStorage.setItem("loggedIn", "true");
+                sessionStorage.removeItem("jobs");
                 document.location.href="employer/employerPage.html";
             }else{
                 alert("snapshot doesn't exist");

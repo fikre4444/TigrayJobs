@@ -20,12 +20,12 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase();
 const auth = getAuth(); 
 
-var seekerState;
+var employerState;
 var info = JSON.parse(sessionStorage.getItem("employerInfo"));
 var creds = JSON.parse(sessionStorage.getItem("employerCreds"));
 function displayUserData(){
     var display = document.getElementById("displayContent");
-    seekerState = {
+    employerState = {
         firstName : info.firstName,
         lastName : info.lastName,
         phoneNumber : info.phoneNumber,
@@ -40,25 +40,26 @@ function displayUserData(){
     var dd = document.createElement("div");
     dd.setAttribute("class", "contain");
     var im = document.createElement("img");
-    im.src=seekerState.profilePicture;
+    im.src=employerState.profilePicture;
     //var classStyles = "img-fluid";
     im.setAttribute("class", "imageStyles");
     dd.appendChild(im);
     var name = document.createElement("h4");
-    name.innerHTML = seekerState.firstName;
+    name.innerHTML = employerState.firstName;
     name.setAttribute("class", "h4 text-center");
     dd.appendChild(name);
 
     display.appendChild(dd);
 
     var fr = document.getElementById("firstName"); //gets the first name element to say hello
-    fr.innerHTML = seekerState["firstName"];
+    fr.innerHTML = employerState["firstName"];
 
 }
 
 function logOut(){
     sessionStorage.removeItem("employerInfo");
     sessionStorage.removeItem("employerCreds");
+    sessionStorage.removeItem("loggedIn");
     window.location.href="../index.html";
 }
 
@@ -72,6 +73,7 @@ window.onload = function(){
     checkCreds();
     displayUserData();
     document.getElementById("logoutButton").addEventListener("click", logOut);
+    console.log("employer.js is running");
 }
 
 

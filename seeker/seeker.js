@@ -62,6 +62,8 @@ function displayUserData(){
 function logOut(){
     sessionStorage.removeItem("seekerInfo");
     sessionStorage.removeItem("seekerCreds");
+    sessionStorage.removeItem("loggedIn");
+
     window.location.href="../index.html";
 }
 

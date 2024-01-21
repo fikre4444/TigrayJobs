@@ -17,7 +17,7 @@
     appId: "1:514987892658:web:afbc1d249b022604624eab"
   };
 // Initialize Firebase & getting the database reference
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig); 
 const database = getDatabase();
 const auth = getAuth();                                                 
 
@@ -106,6 +106,7 @@ function writeUserData() {
                     var userInfo = JSON.stringify(snapshot.val());
                     sessionStorage.setItem("seekerInfo", userInfo);
                     sessionStorage.setItem("seekerCreds", JSON.stringify(credentials.user));
+                    sessionStorage.setItem("loggedIn", "true");
                     document.location.href="seeker/seekerPage.html";
                 }else{
                     alert("snapshot doesn't exist");

@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tigary</title>
+    <title>Job Submission</title>
     <link href="../style/bootstrap.min.css" rel="stylesheet"/>
     <link href="../style/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
-    <link href="../style/style.css" rel="stylesheet"/>
     <script src="../style/bootstrap.bundle.js" defer></script>
-    <script src="apply.js" defer type="module"></script>
+    <script src="applicants.js" type="module" defer></script>
+
 </head>
 <body>
-     <!--Navbar-->
-     <nav class="navbar navbar-expand-sm shadow-sm mb-1 sticky-top bg-white">
+    <!--This is will be the nav bar along with the Title Tigray jobs-->
+    <nav class="navbar navbar-expand-sm shadow-sm mb-1 sticky-top bg-white">
         <div class="container my-2">
             <a class="navbar-brand" href="index.html"><span class="fw-bolder h4">Tigray JobS</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
@@ -20,13 +20,13 @@
             </button>
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-4"><a class="nav-link active" href="seekerPage.html">
-                        <i class="fa fa-home fa-lg"></i>User Dashboard</a></li>
-                    <li class="nav-item mx-4"><a class="nav-link active" href="jobs.html">
-                        <i class="fa fa-tasks fa-lg"></i>Jobs</a></li>
+                    <li class="nav-item mx-4"><a class="nav-link active" href="employerPage.html">
+                        <i class="fa fa-home fa-lg"></i>Employer Dashboard</a></li>
+                    <li class="nav-item mx-4"><a class="nav-link" href="jobsSubmit.html">
+                        <i class="fa fa-tasks fa-lg"></i>Post A Job</a></li>
                     <li class="nav-item mx-4"><a class="nav-link" href="blog.html">
-                        <i class="fas fa-instagram fa-lg"></i>AppliedJobs</a></li>
-                    <li class="nav-item mx-4">
+                        <i class="fa fa-tasks fa-lg"></i>Posted Jobs</a></li>
+                    <li class="nav-item mx-4">	
                         <button id="logoutButton" class="btn btn-danger">Logout</button>
                     </li>
                 </ul>
@@ -35,24 +35,22 @@
     </nav>
 
 
-    <div class="shadow-lg p-5" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(../images/back.jpg); position: relative;">
-        <!--For Logging in-->
-        <div id="displayContent" class="container shadow-lg p-5 rounded-5 w-75" style="background-color: rgba(255, 255, 255, 0.85);">
-            <h1>Job Application</h1>
-            <div class="mb-3">
-                <label class="form-label h4 fw-bold">Resume Writing</label>
-                <textarea id = "resumeWriting" class="form-control border-3 shadow-sm" rows="8"></textarea>
-            </div>
-            <button id="submitApplication" type="button" class="btn btn-success">Submit Application</button>
-        </div>
 
-        
+    <div class="shadow-lg p-5" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(../images/back.jpg);">
+        <!--For Posting a Job-->
+        <div class="container shadow-lg p-5 rounded-5" style="background-color: rgba(255, 255, 255, 0.85);">
+            <h1 class="display-5 mb-5 h2">Input the fields and click Post!</h1>
+            <div id="applicantsHolder">
+                Loading....
+            </div> 
+        </div>
     </div>
 
 
 
-    <!--This is for the all the links of the webpage-->
-    <div class="container m-auto my-5">
+
+     <!--This is for the all the links of the webpage-->
+     <div class="container m-auto my-5">
         <div class="row">
             <div class="col-lg-4">
                 <h1>Contact Us</h1>
@@ -70,7 +68,7 @@
 
 
     <!--For the newsletter-->
-    <div class="p-3 mb-0" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(images/back.jpg);">
+    <div class="p-3 mb-0" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(../images/back.jpg);">
         <div class="m-2 input-group my-4 w-75 m-auto">
             <label class="input-group-text" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">Subscribe to our newsletter</label>
             <input class="form-control w-50" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;" type="email"/>

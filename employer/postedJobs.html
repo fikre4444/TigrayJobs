@@ -9,7 +9,16 @@
     <link href="../style/style.css" rel="stylesheet"/>
     <script src="../style/bootstrap.bundle.js" defer></script>
 	<script src="employer.js" type="module" defer></script>
+    <script src="jobsPopulater.js" type="module" defer></script>
+
     <style>
+        .hoverEffect:hover {
+            transform: scale(1.05, 1.05);
+            cursor:pointer;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            transition-duration: 0.4s;
+        }
+
         .modal-content {
 			padding: 15px;
   			background-color: #fefefe;
@@ -148,11 +157,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-4"><a class="nav-link active" href="employerPage.html">
+                    <li class="nav-item mx-4"><a class="nav-link" href="employerPage.html">
                         <i class="fa fa-home fa-lg"></i>Employer Dashboard</a></li>
                     <li class="nav-item mx-4"><a class="nav-link" href="jobsSubmit.html">
                         <i class="fa fa-tasks fa-lg"></i>Post A Job</a></li>
-                    <li class="nav-item mx-4"><a class="nav-link" href="postedJobs.html">
+                    <li class="nav-item mx-4"><a class="nav-link active" href="postedJobs.html">
                         <i class="fa fa-tasks fa-lg"></i>Posted Jobs</a></li>
                     <li class="nav-item mx-4">	
                         <button id="logoutButton" class="btn btn-danger">Logout</button>
@@ -168,12 +177,16 @@
         <i id="enve" onclick = "stopBeating()" class="en hovering fa fa-envelope fa-3x h1"></i>
         
         <div id="displayContent" class="container shadow-lg p-5 rounded-5 w-75" style="background-color: rgba(255, 255, 255, 0.85);">
-            <h1>Hi <span id="firstName">Fikre!</span></h1>
-            <br><br>
-            <h4>1.To post a job, Click Post a Job.</h4>
-            <br><br>
-            <h4>2.To Check posted Jobs, click Posted Jobs.</h4>
-			<br><br><br>
+                <h1 id="jobsTitle">Your Jobs</h1>
+                <button style = "display: none;" id="returnToAll" class="btn btn-primary" type="button">Return To All Jobs</button>
+                <div style="display: none;" id = "newJobsUploaded">
+                    <h4>There are new Jobs uploaded.</h4>
+                    <button id="showNewJobs" class="btn btn-primary" type="button">Show New Jobs</button>
+                </div>
+                
+                <div id="jobsHolder">
+                    Loading....
+                </div>         
 
 
         </div>
@@ -186,7 +199,7 @@
 			<span onclick="back()" class="xbutton">&times</span>
 			<h1 class="nTitle">Notifications</h1>
 			<div class="notices">
-                <h3>This is where you're going to input all the messages sent to the seeker.</h3>
+                <h3 class="p-1 rounded-1 m-1"style="background-color: rgba(20, 50, 100,0.5); color: white;">This is where you're going to input all the messages sent to the seeker.</h3>
 			</div>
 			<div style="width: 100%; height: 100%">
 				<button class="backButton" onclick="back()">Back</button>

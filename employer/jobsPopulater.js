@@ -1,6 +1,6 @@
  // Import the functions you need from the SDKs you need
  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
- import { getDatabase, ref, set, push, get, child, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+ import { getDatabase, ref, set, push, get, child, onValue, query, orderByChild, equalTo, remove } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
  import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
@@ -61,11 +61,26 @@ function checkChanges(){
 }
 
 function doAllInitializations(){
+    // var employerId = JSON.parse(sessionStorage.getItem("employerCreds")).uid;
+    // console.log("the meployer id is "+employerId);
+    // const emRef = query(ref(database, 'jobs'), orderByChild('employerId'), equalTo(employerId));
+
+    // get(emRef).then((snapshot)=>{
+    //     if(snapshot.exists()){
+    //         console.log("The napshot is "+JSON.stringify(snapshot.val()));
+    //         var jobs = snapshot.val();
+    //         sessionStorage.setItem("jobs", JSON.stringify(jobs));
+    //         populatePage(jobs);
+
+    //     }
+    // });
+
     console.log("populating.");
-    const dbRef = ref(database);
-    if(sessionStorage.getItem("jobs") == null || databaseChange){
+    var employerId = JSON.parse(sessionStorage.getItem("employerCreds")).uid;
+    const dbRef = query(ref(database, 'jobs'), orderByChild('employerId'), equalTo(employerId));
+    if(sessionStorage.getItem("jobs") == null || databaseChange){ //if we didn't load the jobs before
         console.log("loading from firebase")
-        get(child(dbRef, 'jobs')).then((snapshot)=>{
+        get(dbRef).then((snapshot)=>{
             if(snapshot.exists()){
                 var jobs = snapshot.val();
                 sessionStorage.setItem("jobs", JSON.stringify(jobs));
@@ -155,23 +170,29 @@ function addOtherDetails(jobHolder, job){
         restDetails.appendChild(postedAgo);
     
     jobHolder.appendChild(restDetails);
-    var applyButton = document.createElement("button");
-    applyButton.setAttribute("class", "btn btn-primary mt-2 px-4");
-    applyButton.setAttribute("type", "button");
-    if(sessionStorage.getItem("loggedIn") != null){ // if someone is logged do this.
-        applyButton.innerHTML = "Apply";
-        applyButton.addEventListener("click", function(event){
-            event.stopPropagation();
-            document.location.href = "apply.html"
-        });
-    }else{
-        applyButton.innerHTML = "To Apply Log In"
-        applyButton.addEventListener("click", function(event){
-            event.stopPropagation();
-            document.location.href = "loginSeeker.html"
-        });
-    }
-    jobHolder.appendChild(applyButton);
+    var removeJob = document.createElement("button");
+    removeJob.setAttribute("class", "btn btn-danger mt-2 px-4 mx-2");
+    removeJob.setAttribute("type", "button");
+    removeJob.innerHTML = "Remove Job";
+    removeJob.addEventListener("click", removeTheJob);
+    jobHolder.appendChild(removeJob);
+
+    var viewApplicants = document.createElement("button");
+    viewApplicants.setAttribute("class", "btn btn-primary mt-2 px-4");
+    viewApplicants.setAttribute("type", "button");
+    viewApplicants.innerHTML = "View Applicants";
+    viewApplicants.addEventListener("click", viewTheApplicants);
+    jobHolder.appendChild(viewApplicants);
+    // if(sessionStorage.getItem("loggedIn") != null){ // if someone is logged do this.
+    //     applyButton.innerHTML = "Apply";
+    // }else{
+    //     applyButton.innerHTML = "To Apply Log In"
+    //     applyButton.addEventListener("click", function(event){
+    //         event.stopPropagation();
+    //         document.location.href = "loginSeeker.html"
+    //     });
+    // }
+    
 
     /*
                     <span class="col-md text-primary fw-bold">Full Time</span><br>
@@ -182,6 +203,34 @@ function addOtherDetails(jobHolder, job){
                     </div>
                     <button type="button" class="btn btn-primary mt-2 px-4">Apply</button>
     */
+}
+
+function viewTheApplicants(event){
+    event.stopPropagation();
+    var clickedButton = event.currentTarget;
+    var parentContainer = clickedButton.parentElement;
+    var jobId = parentContainer.getAttribute("jobId");
+    console.log("job id is "+jobId);
+    sessionStorage.setItem("currentJobId", jobId);
+    location.href = "applicants.html";
+}
+
+function removeTheJob(event){
+    event.stopPropagation();
+    var clickedButton = event.currentTarget;
+    var parentContainer = clickedButton.parentElement;
+    var jobId = parentContainer.getAttribute("jobId");
+    console.log("job is is"+jobId);
+    var refToJob = ref(database, 'jobs/'+jobId);
+    remove(refToJob).then(()=>{
+        alert("Job Removed Successfully");
+        sessionStorage.removeItem("jobs");
+        location.href="postedJobs.html";
+
+    }).catch((error)=>{
+        alert("There was a problem removing the job.")
+    });
+
 }
 
 function getPostedAgo(givenDate){ //gets the how long it was posted ago.

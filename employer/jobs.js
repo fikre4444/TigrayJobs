@@ -23,6 +23,8 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase();
 const auth = getAuth(); 
 
+var employerState;
+
 document.addEventListener("DOMContentLoaded", function(){
     var form  = document.getElementById("jobFields");
     if(form != null){ // we have to check because this script is used by two html files. that might not have the element
@@ -37,6 +39,16 @@ document.addEventListener("DOMContentLoaded", function(){
     if(returnToAll != null){
         returnToAll.addEventListener("click", handleReturnTo);
         console.log("return to")
+    }
+
+    var comp = document.getElementById("company");
+    if(comp != null){
+        //sets the value of the company field to the employer's company and it is unchangeable.
+        if(sessionStorage.getItem("employerInfo") != null){
+            employerState = JSON.parse(sessionStorage.getItem("employerInfo"));
+            comp.value = employerState.company;
+            comp.setAttribute("disabled", "disabled");
+        }
     }
      
 });
@@ -58,6 +70,7 @@ function getJob(){
     var jobDescription = document.getElementById("jobDescription");
     var company = document.getElementById("company");
     var postedDate = new Date();
+    var employerId = JSON.parse(sessionStorage.getItem("employerCreds")).uid;
 
 
 
@@ -72,7 +85,8 @@ function getJob(){
         "deadline" : deadline.value,
         "jobDescription" : jobDescription.value,
         "company" : company.value,
-        "postedDate" : postedDate.toString()
+        "postedDate" : postedDate.toString(),
+        "employerId" : employerId
     };
 
     //console.log(job);
@@ -86,6 +100,8 @@ function uploadJob(job){
     set(ref(database, 'jobs/'+jobId), job)
     .then((ob)=>{
         alert("It has been done.");
+        sessionStorage.removeItem("jobs"); //removes item so that when gotten back 
+        location.href="jobsSubmit.html";
     }).catch((error)=>{
         alert("There was an error");
     })
