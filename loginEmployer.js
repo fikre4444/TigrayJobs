@@ -38,13 +38,13 @@ function handleLogin(event){
         // console.log("successfully logged in!");
         // console.log(credentials);
         var databaseRef = ref(database);
-        get(child(databaseRef, 'users/'+credentials.user.uid)).then((snapshot)=>{
+        get(child(databaseRef, 'employers/'+credentials.user.uid)).then((snapshot)=>{
             if(snapshot.exists){
                 var userInfo = JSON.stringify(snapshot.val());
-                sessionStorage.setItem("seekerInfo", userInfo);
-                sessionStorage.setItem("seekerCreds", JSON.stringify(credentials.user));
+                sessionStorage.setItem("employerInfo", userInfo);
+                sessionStorage.setItem("employerCreds", JSON.stringify(credentials.user));
                 sessionStorage.setItem("loggedIn", "true");
-                document.location.href="seeker/seekerPage.html";
+                document.location.href="employer/employerPage.html";
             }else{
                 alert("snapshot doesn't exist");
             }

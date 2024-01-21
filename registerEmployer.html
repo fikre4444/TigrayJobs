@@ -47,7 +47,7 @@
     <div class="shadow-lg p-5" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(images/back.jpg);">
         <!--For Registration-->
         <div class="container shadow-lg p-5 rounded-5" style="background-color: rgba(255, 255, 255, 0.85);">
-            <h1 class="display-5 mb-5">Your Journey of being hired begins NOW.</h1>
+            <h1 class="display-5 mb-5">Hire the best Candidates by Registering.</h1>
             <form id="registrationForm">
                 <div class="row">
                     <fieldset id="personal" class="col-md">
@@ -74,8 +74,21 @@
                                 <input id="phoneNumber" class="form-control" type="text"  placeholder="e.g 0914004426 or 251914004426">
                             </div>
                         </div>
+                        <div>Company Info</div>
+                        <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                            <label class="input-group-text">Company Name</label>
+                            <input id="company" class="form-control" type="text" required placeholder="e.g Samsung">
+                        </div>
+                        <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
+                            <label class="input-group-text">Role</label>
+                            <input id="role" class="form-control" type="text" required placeholder="e.g Assitant Manager">
+                        </div>
+                        
+                    </fieldset>
+    
+                    <fieldset id="educationprofession" class="col-md">
+                        <legend>Account Info</legend>
                         <div class="mb-3">
-                            <div>Account Info</div>
                             <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
                                 <label class="input-group-text">UserName</label>
                                 <input id="userName" type="text" class="form-control"  required/>
@@ -104,53 +117,6 @@
                             <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
                                 <label class="input-group-text">City Name</label>
                                 <input id="cityName" class="form-control" type="text">
-                            </div>
-                        </div>
-                    </fieldset>
-    
-                    <fieldset id="educationprofession" class="col-md">
-                        <legend>Education And Profession</legend>
-                        <div>Education Section</div>
-                        <div>
-                            <div class="mb-3">
-                                <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
-                                    <label class="input-group-text">Field Of Study</label>
-                                    <input id="studyField" class="form-control" type="text"  >
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
-                                    <label class="input-group-text">Highest Education Level</label>  
-                                    <select id="educationLevel" class="form-select">
-                                        <option>Primary School</option>
-                                        <option>High School</option>
-                                        <option>Diploma</option>
-                                        <option selected>Bachelor's Degree</option>
-                                        <option>Master's Degree</option>
-                                        <option>Doctrate</option>
-                                        <option>Other</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div>Profession Section</div>
-                        <div>
-                            <div class="mb-3">
-                                <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
-                                    <label class="input-group-text">Main Profession</label>
-                                    <input id="profession" class="form-control" type="text"  />
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <div class="input-group m-2" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">
-                                    <label class="input-group-text">Experience Level</label>
-                                    <select id="experience" class="form-select">
-                                        <option selected>Entry Level (Fresh Graduate)</option>
-                                        <option>Junior Level (1-2 years Experience)</option>
-                                        <option>Mid Level (2-5 years Experience)</option>
-                                        <option>Senior Level (5+ years Experience)</option>
-                                    </select>
-                                </div>
                             </div>
                         </div>
                     </fieldset>
@@ -208,6 +174,6 @@
         
     </div>
 
-    <script src="registration.js" type="module"></script>
+    <script src="registrationEmployer.js" type="module"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
     <link href="style/bootstrap.min.css" rel="stylesheet"/>
     <link href="style/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
     <script src="style/bootstrap.bundle.js" defer></script>
-    <script src="jobs.js" defer type="module"></script>
+    <script src="jobDetail.js" defer type="module"></script>
 </head>
 <body>
     <!--This is will be the nav bar along with the Title Tigray jobs-->
@@ -35,8 +35,8 @@
                             <li><a class="dropdown-item" href="#" onclick="location.href='loginSeeker.html'">Login As Job Seeker</a></li>
                             <li><a class="dropdown-item" href="#" onclick="location.href='registerSeeker.html'">Register As Job Seeker</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#" onclick="location.href='loginEmployer.html'">Login As Employer</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="location.href='registerEmployer.html'">Register As Employer</a></li>
+                            <li><a class="dropdown-item" href="#">Login As Employer</a></li>
+                            <li><a class="dropdown-item" href="#">Register As Employer</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -44,57 +44,89 @@
         </div>
     </nav>
 
-    <div class="shadow-lg" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(images/back.jpg);">
-        <div id="carouselExampleControls" class="carousel slide mb-5 pb-5" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="display-5 text-center mt-5">Easy to find your dream job.</div>
-              </div>
-              <div class="carousel-item">
-                <div class="display-5 text-center mt-5">Step#1: Click Look for a job.</div>
-              </div>
-              <div class="carousel-item">
-                <div class="display-5 text-center mt-5">Step#2: Type something into the input.</div>
-              </div>
-              <div class="carousel-item">
-                <div class="display-5 text-center mt-5">Step#3: Click Search!</div>
-              </div>
+    <div class="shadow-lg p-5 px-0" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(images/back.jpg); position: relative;">
+        
+        <div id="displayContent" class="container  p-5 rounded-5" style="background-color: rgba(255, 255, 255, 0.85); display: none;">
+            <div class="row m-2">
+                <h1 class="col-md" id="jobsTitle">Detailed Info</h1> 
+                <button id="applyButton" type="button" class="col-md btn btn-primary p-2">To Apply Log in</button>
             </div>
-            <button class="carousel-control-prev text-danger" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
+             
+            <div class="h3 fw-bolder row">
+                <div class="col-md p-2" style="background-color: rgba(178, 245, 206, 0.7);">
+                    Job Name
+                </div>
+                <div id="jobNameValue" class="col-md p-2" style="background-color: rgba(191, 203, 255, 0.7);">
+                    Some Job
+                </div>
+            </div>
+            <div class="h4 fw-bolder row">
+                <div class="col-md p-2" style="background-color: rgba(178, 245, 206, 0.7);">
+                    Company Name 
+                </div> 
+                <div id="companyValue" class="col-md p-2" style="background-color: rgba(191, 203, 255, 0.7);">
+                    Google
+                </div>
+            </div> 
+            <div class="h4 fw-bolder row">
+                <div class="col-md p-2" style="background-color: rgba(178, 245, 206, 0.7);">
+                    Job Category
+                </div> 
+                <div id="categoryValue" class="col-md p-2" style="background-color: rgba(191, 203, 255, 0.7);">
+                    General
+                </div>
+            </div> 
+            <div class="h4 fw-bolder row">
+                <div class="col-md p-2" style="background-color: rgba(178, 245, 206, 0.7);">
+                    Employment
+                </div> 
+                <div id="employmentTypeValue" class="col-md p-2" style="background-color: rgba(191, 203, 255, 0.7);">
+                    Part Time
+                </div>
+            </div> 
+            <div class="h4 fw-bolder row">
+                <div class="col-md p-2" style="background-color: rgba(178, 245, 206, 0.7);">
+                    Job Salary
+                </div> 
+                <div id="salaryValue" class="col-md p-2" style="background-color: rgba(191, 203, 255, 0.7);">
+                    30,000 Birr
+                </div>
+            </div> 
+            <div class="h4 fw-bolder row">
+                <div class="col-md p-2" style="background-color: rgba(178, 245, 206, 0.7);">
+                    Region 
+                </div> 
+                <div id="regionValue" class="col-md p-2" style="background-color: rgba(191, 203, 255, 0.7);">
+                    Tigray
+                </div>
+            </div>      
+            <div class="h4 fw-bolder row">
+                <div class="col-md p-2" style="background-color: rgba(178, 245, 206, 0.7);">
+                    City
+                </div> 
+                <div id="cityNameValue" class="col-md p-2" style="background-color: rgba(191, 203, 255, 0.7);">
+                    Mekelle
+                </div>
+            </div> 
+            <div class="h4 fw-bolder row">
+                <div class="col-md p-2" style="background-color: rgba(178, 245, 206, 0.7);">
+                    Deadline
+                </div> 
+                <div id="deadlineValue" class="col-md p-2" style="background-color: rgba(191, 203, 255, 0.7);">
+                    19-03-25
+                </div>
+            </div> 
+            <div class="p-3 h4 row" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7));">
+                <div class="h2 text-center">Job Description</div>
+                <div id="jobDescriptionValue">
+                    In this job you are going to do this, this and this.
+                </div>
+                
+            </div>
 
-        <div class="container rounded-2 mt-0 mb-3 p-3 px-5 shadow-lg" style="width: 50%;">
-            <div class="row">
-                <button type="button" class="btn btn-success btn-lg p-4 shadow-lg" onclick = "document.location.href='jobs.html'">Look for a job</button>
-            </div>
         </div>
-    
 
-        <div style="min-height: 300px;" class="row w-75 m-auto mt-5">
-            <div class="col-md shadow-lg rounded-5 m-5 me-3 pb-4 mx-auto" style="background-color: rgba(255, 255, 255, 0.7);">
-                <div class="m-2 display-6">Job Seeker</div>
-                <button type="button" class="btn btn-primary m-3 w-75" onclick="location.href='registerSeeker.html'">
-                    <i class="fa fa-user-plus m-3 fa-2x"></i>Register As Job Seeker</button><br>
-                <button type="button" class="btn btn-primary m-3 w-75" onclick="location.href='loginSeeker.html'">
-                    <i class="fa fa-sign-in m-3 fa-2x"></i>Login As Job Seeker</button>
-            </div>
-            <div class="col-md shadow-lg rounded-5 m-5 pb-4 mx-auto" style="background-color: rgba(255, 255, 255, 0.7);">
-                <div class="m-2 display-6">Employer</div>
-                <button type="button" class="btn btn-primary m-3 w-75" onclick="location.href='registerEmployer.html'">
-                    <i class="fa fa-user-plus m-3 fa-2x"></i>Register As Employer</button><br>
-                <button type="button" class="btn btn-primary m-3 w-75" onclick="location.href='loginEmployer.html'">
-                    <i class="fa fa-sign-in m-3 fa-2x"></i>Login As Employer</button>
-            </div>
-
-        </div>
-    </div>
+     </div>
 
     <!--This is for the all the links of the webpage-->
         <div class="container m-auto my-5">
@@ -130,5 +162,7 @@
             </div>
         </div>
     </div>
+
+    
 </body>
 </html>

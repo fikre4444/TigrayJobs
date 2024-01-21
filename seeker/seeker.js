@@ -40,12 +40,22 @@ function displayUserData(){
         profilePicture: info.profilePicture
     };
 
+    var dd = document.createElement("div");
+    dd.setAttribute("class", "contain");
     var im = document.createElement("img");
     im.src=seekerState.profilePicture;
-    var classStyles = "img-fluid";
-    im.setAttribute("class", classStyles);
-    display.appendChild(im);
+    //var classStyles = "img-fluid";
+    im.setAttribute("class", "imageStyles");
+    dd.appendChild(im);
+    var name = document.createElement("h4");
+    name.innerHTML = seekerState.firstName;
+    name.setAttribute("class", "h4 text-center");
+    dd.appendChild(name);
 
+    display.appendChild(dd);
+
+    var fr = document.getElementById("firstName"); //gets the first name element to say hello
+    fr.innerHTML = seekerState["firstName"];
 
 }
 
