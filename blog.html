@@ -12,7 +12,7 @@
     <!--This is will be the nav bar along with the Title Tigray jobs-->
     <nav class="navbar navbar-expand-sm shadow-sm mb-1 sticky-top bg-white">
         <div class="container my-2">
-            <a class="navbar-brand" href="index.html">Tigray Jobs</a>
+            <a class="navbar-brand" href="index.html"><span class="fw-bolder h4">Tigray JobS</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -20,12 +20,22 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item mx-4"><a class="nav-link" href="index.html">
                         <i class="fa fa-home fa-lg"></i>Home</a></li>
-                    <li class="nav-item mx-4"><a class="nav-link" href="#">
+                    <li class="nav-item mx-4"><a class="nav-link" href="jobs.html">
                         <i class="fa fa-tasks fa-lg"></i>Jobs</a></li>
                     <li class="nav-item mx-4"><a class="nav-link active" href="blog.html">
                         <i class="fas fa-instagram fa-lg"></i>Our Blog</a></li>
-                    <li class="nav-item mx-4"><a class="nav-link" href="#">
-                        <i class="fa fa-phone fa-lg"></i>About Us</a></li>
+                        <li class="nav-item dropdown mx-4">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Login/Register
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#" onclick="location.href='loginSeeker.html'">Login As Job Seeker</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="location.href='registerSeeker.html'">Register As Job Seeker</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#" onclick="location.href='loginEmployer.html'">Login As Employer</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="location.href='registerEmployer.html'">Register As Employer</a></li>
+                            </ul>
+                        </li>
                 </ul>
             </div>
 
