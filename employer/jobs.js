@@ -6,7 +6,7 @@
  import {populatePage} from "./jobsPopulater.js";
 
 
-// Your web app's Firebase configuration
+// Your web app's Firebase configuration.
  const firebaseConfig = {
    apiKey: "AIzaSyC0HyuVn6tutXp83EA782SR9kx8D0HC704",
    authDomain: "tigrayjobs-3f65f.firebaseapp.com",
