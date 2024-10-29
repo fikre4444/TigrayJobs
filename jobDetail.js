@@ -7,7 +7,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebas
 
 // Your web app's Firebase configuration
  const firebaseConfig = {
-   apiKey: "AIzaSyC0HyuVn6tutXp83EA782SR9kx8D0HC704",
+   apiKey: "AIzaSyDd9bYkS8Y0ow8EfIEEUB01_IkqmpdpSAc",
    authDomain: "tigrayjobs-3f65f.firebaseapp.com",
    databaseURL: "https://tigrayjobs-3f65f-default-rtdb.firebaseio.com",
    projectId: "tigrayjobs-3f65f",
