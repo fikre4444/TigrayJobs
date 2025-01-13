@@ -8,7 +8,7 @@
     <link href="../style/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
     <link href="../style/style.css" rel="stylesheet"/>
     <script src="../style/bootstrap.bundle.js" defer></script>
-	<script src="employer.js" type="module" defer></script>
+		<script type="module" src="employer.js"></script>
     <style>
         .modal-content {
 			padding: 15px;
@@ -137,31 +137,10 @@
 			document.getElementById("id02").style.display = "none";
 		}
     </script>
+		<script src="./reusable_components/navbarLoader.js" defer></script>
+    <script src="loggingOut.js"></script>
 </head>
 <body>
-     <!--Navbar-->
-     <nav class="navbar navbar-expand-sm shadow-sm mb-1 sticky-top bg-white">
-        <div class="container my-2">
-            <a class="navbar-brand" href="employerPage.html"><span class="fw-bolder h4">Tigray JobS</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navmenu">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-4"><a class="nav-link active" href="employerPage.html">
-                        <i class="fa fa-home fa-lg"></i>Employer Dashboard</a></li>
-                    <li class="nav-item mx-4"><a class="nav-link" href="jobsSubmit.html">
-                        <i class="fa fa-tasks fa-lg"></i>Post A Job</a></li>
-                    <li class="nav-item mx-4"><a class="nav-link" href="postedJobs.html">
-                        <i class="fa fa-tasks fa-lg"></i>Posted Jobs</a></li>
-                    <li class="nav-item mx-4">	
-                        <button id="logoutButton" class="btn btn-danger">Logout</button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
 
     <div class="shadow-lg p-5" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(../images/back.jpg); position: relative;">
         <!--For Logging in-->
@@ -228,7 +207,5 @@
             </div>
         </div>
     </div>
-
-<script type="module" src="employer.js"></script>
 </body>
 </html>

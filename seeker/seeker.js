@@ -1,4 +1,3 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
@@ -51,14 +50,6 @@ function displayUserData(){
 
 }
 
-function logOut(){
-    sessionStorage.removeItem("seekerInfo");
-    sessionStorage.removeItem("seekerCreds");
-    sessionStorage.removeItem("loggedIn");
-
-    window.location.href="../index.html";
-}
-
 function checkCreds(){
     if(!sessionStorage.getItem("seekerCreds")){ //if the seekerCreds is null (if not logged in) then go back to index.html automatically
         window.location.href="../index.html";
@@ -68,7 +59,6 @@ function checkCreds(){
 window.onload = function(){
     checkCreds();
     displayUserData();
-    document.getElementById("logoutButton").addEventListener("click", logOut);
 }
 
 

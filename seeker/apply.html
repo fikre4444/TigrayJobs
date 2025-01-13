@@ -9,32 +9,12 @@
     <link href="../style/style.css" rel="stylesheet"/>
     <script src="../style/bootstrap.bundle.js" defer></script>
     <script src="apply.js" defer type="module"></script>
-	<script src="loggingOut.js" type="module" defer></script>
+    <script src="./reusable_components/navbarLoader.js" defer></script>
+	<script src="loggingOut.js" defer></script>
 
 </head>
 <body>
-     <!--Navbar-->
-     <nav class="navbar navbar-expand-sm shadow-sm mb-1 sticky-top bg-white">
-        <div class="container my-2">
-            <a class="navbar-brand" href="seekerPage.html"><span class="fw-bolder h4">Tigray JobS</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navmenu">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-4"><a class="nav-link" href="seekerPage.html">
-                        <i class="fa fa-home fa-lg"></i>User Dashboard</a></li>
-                    <li class="nav-item mx-4"><a class="nav-link" href="jobs.html">
-                        <i class="fa fa-tasks fa-lg"></i>Jobs</a></li>
-                    <li class="nav-item mx-4"><a class="nav-link" href="appliedJobs.html">
-                        <i class="fas fa-instagram fa-lg"></i>AppliedJobs</a></li>
-                    <li class="nav-item mx-4">
-                        <button id="logoutButton" class="btn btn-danger">Logout</button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    
 
 
     <div class="shadow-lg p-5" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(../images/back.jpg); position: relative;">
@@ -87,5 +67,6 @@
             </div>
         </div>
     </div>
+
 </body>
 </html>

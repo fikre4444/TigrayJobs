@@ -1,6 +1,11 @@
 document.addEventListener("DOMContentLoaded", function(){
-    document.getElementById("logoutButton").addEventListener("click", logOut);
-    checkCreds();
+    document.addEventListener("navbarLoaded", function () {
+        console.log("Navbar loaded. Attaching logout button events.");
+        const logoutButton = document.getElementById("logoutButton");
+        if (logoutButton) {
+            logoutButton.addEventListener("click", logOut);
+        }
+    });
 })
 
 function checkCreds(){
@@ -15,3 +20,5 @@ function logOut(){
     sessionStorage.removeItem("loggedIn");
     window.location.href="../index.html";
 }
+
+checkCreds();

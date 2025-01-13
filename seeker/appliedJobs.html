@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tigary</title>
+    <link href="../style/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../style/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="../style/style.css" rel="stylesheet"/>
+    <script src="../style/bootstrap.bundle.js" defer></script>
+    <style>
+        .modal-content {
+			padding: 15px;
+  			background-color: #fefefe;
+  			margin: 5% auto 15% auto;
+  			border: 1px solid #888;
+  			width: 80%; /* Could be more or less, depending on screen size */
+  			border-bottom-left-radius: 40px;
+		}
+		.animate {
+  			-webkit-animation: animatezoom 0.6s;
+  			animation: animatezoom 0.7s;
+		}
+		@-webkit-keyframes animatezoom {
+  			from {-webkit-transform: scale(0)} 
+  			to {-webkit-transform: scale(1)}
+		}
+  
+		@keyframes animatezoom {
+  			from {transform: scale(0);}
+  			to {transform: scale(1)}
+		}
+        .en {
+			background-color: #ffffff;
+			border-radius: 50%;
+			padding: 10px;
+			position: absolute;
+			color: rgba(0, 0, 0, 0.7);
+			top: 10px;
+			right: 17px;
+			text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.2);
+			font-size: 200%;
+			animation-name: increase;
+			animation-duration: 1.7s;
+			animation-iteration-count: infinite;
+		}
+        .en:hover {
+			cursor: pointer;
+		}
+		@keyframes increase {
+			0%{transform: scale(0.7);}
+			50% {transform: scale(1.1);}
+			100% {transform: scale(0.7);}
+        }
+        .imageStyles {
+            width: 120px;
+            border-radius: 50%;
+            border: solid 5px white;
+        }
+        .contain {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            border-radius: 50px;
+            background-color: rgba(50, 50, 50, 0.3);
+            padding: 5px;
+        }
+		
+
+        .notify {
+			background-color: #222;
+			color: #eee;
+			padding: 10px;
+			margin-bottom: 5px;
+			width: 90%;
+			border-radius: 15px;
+			border-bottom-right-radius: 50px;
+		}
+		.notify:hover {
+			background-color: #eee;
+			color: black;
+			transition: 0.5s;
+			cursor: pointer;
+			transform: scale(1.1);
+			border-radius: 15px;
+		}
+		.xbutton{
+			float: right;
+			padding: 10px;
+			font-size: 290%;
+			background-color: none;
+
+		}
+		.xbutton:hover {
+			transition: 0.3s;
+			color: #a44;
+			cursor: pointer;
+		}
+		.notices {
+			margin-left: 30px;
+		}
+
+		.backButton {
+			padding: 7px 15px;
+			width: 15%;
+			border: none;
+			color: white;
+			background-color: black;
+			margin-left: 30px;
+			margin-top: 15px;
+			border-radius: 15px;
+		}
+		.backButton:hover{
+			background-color: #ddd;
+			color: black;
+			cursor: pointer;
+			transition: 0.3s;
+		}
+
+		.nTitle {
+			margin-left: 30px;
+			font-family: brana;
+			color: rgb(0, 0, 0);
+			font-weight: 600;
+		}
+    </style>
+    <script>
+        function stopBeating(){
+			document.getElementById("enve").style.animationName="st"; //stops the animation for now
+			document.getElementById("id02").style.display = "block";
+
+			
+		}
+		function back(){
+			document.getElementById("enve").style.animationName = "increase";
+			document.getElementById("id02").style.display = "none";
+		}
+    </script>
+		<script src="./reusable_components/navbarLoader.js" defer></script>
+		<script src="loggingOut.js" defer></script>
+
+</head>
+<body>
+  
+    <div class="shadow-lg p-5" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(../images/back.jpg); position: relative;">
+        
+        <h1>Applied jobs things.</h1>
+
+        
+    </div>
+
+    
+    <!--This is for the all the links of the webpage-->
+    <div class="container m-auto my-5">
+        <div class="row">
+            <div class="col-lg-4">
+                <h1>Contact Us</h1>
+                <div><i class="fa fa-map-marker fa-2x"></i><p class="d-inline-block fw-bolder">Ethiopia, Mekelle - Mekelle University</p></div>
+                <div><i class="fa fa-phone fa-lg"></i><p class="d-inline-block fw-bolder">+251933250034</p></div>
+                <div><i class="fa fa-envelope fa-lg"></i><p class="d-inline-block fw-bolder">TJ123@gmail.com</p></div>
+            </div>
+            <div class="col-lg-4 lead">
+                <h1>Mission</h1>
+                <p>Our mission is to help job seekers find their dream job and help Employers find the best candidates.</p>
+            </div> 
+        </div>
+    </div>
+
+
+
+    <!--For the newsletter-->
+    <div class="p-3 mb-0" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(images/back.jpg);">
+        <div class="m-2 input-group my-4 w-75 m-auto">
+            <label class="input-group-text" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;">Subscribe to our newsletter</label>
+            <input class="form-control w-50" style="border: solid rgba(80, 80, 80, 0.5) 1px; border-radius: 6px;" type="email"/>
+            <input type="button" class="btn btn-primary" value="subscribe"/>
+        </div> 
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p>
+                    Tigray Jobs, Copyright &copy; 2014 all rights reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

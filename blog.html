@@ -7,43 +7,10 @@
     <link href="style/bootstrap.min.css" rel="stylesheet"/>
     <link href="style/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
     <script src="style/bootstrap.bundle.js" defer></script>
+    <script src="./reusable_components/navbarLoader.js" defer></script>
 </head>
 <body>
-    <!--This is will be the nav bar along with the Title Tigray jobs-->
-    <nav class="navbar navbar-expand-sm shadow-sm mb-1 sticky-top bg-white">
-        <div class="container my-2">
-            <a class="navbar-brand" href="index.html"><span class="fw-bolder h4">Tigray JobS</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navmenu">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-4"><a class="nav-link" href="index.html">
-                        <i class="fa fa-home fa-lg"></i>Home</a></li>
-                    <li class="nav-item mx-4"><a class="nav-link" href="jobs.html">
-                        <i class="fa fa-tasks fa-lg"></i>Jobs</a></li>
-                    <li class="nav-item mx-4"><a class="nav-link active" href="blog.html">
-                        <i class="fas fa-instagram fa-lg"></i>Our Blog</a></li>
-                        <li class="nav-item dropdown mx-4">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Login/Register
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#" onclick="location.href='loginSeeker.html'">Login As Job Seeker</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="location.href='registerSeeker.html'">Register As Job Seeker</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#" onclick="location.href='loginEmployer.html'">Login As Employer</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="location.href='registerEmployer.html'">Register As Employer</a></li>
-                            </ul>
-                        </li>
-                </ul>
-            </div>
-
-        </div>
-    </nav>
-
-
-
+    
     <div class="shadow-lg p-5" style="background: linear-gradient(to right, rgba(178, 245, 206, 0.7), rgba(191, 203, 255, 0.7)), url(images/back.jpg); position: relative;">
         <!--For Logging in-->
         <div id="displayContent" class="container shadow-lg p-5 rounded-5 text-center" style="background-color: rgba(255, 255, 255, 0.85);">
@@ -52,6 +19,46 @@
             </div>
 
         </div>
+        
+        <!-- New Blog Section -->
+        <div class="container shadow-lg p-5 my-4 rounded-5" style="background-color: rgba(255, 255, 255, 0.85);">
+            <h2 class="text-center mb-4">How to Apply for Jobs on Tigray Jobs</h2>
+            <div class="lead">
+                <p>
+                    Are you ready to take the next step in your career journey? Applying for jobs on Tigray Jobs is easy and straightforward. Follow these simple steps to get started:
+                </p>
+                
+                <ol>
+                    <li>
+                        <strong>Create an Account:</strong> If you're new to our platform, start by creating an account. Click on the "Sign Up" button and fill in your details. This will allow you to save jobs, track your applications, and get personalized recommendations.
+                    </li>
+                    <li>
+                        <strong>Browse Job Listings:</strong> Use the search and filter options to find jobs that match your skills and experience. You can search by keywords, location, industry, and more.
+                    </li>
+                    <li>
+                        <strong>Review Job Details:</strong> Once you find a job you're interested in, click on the job title to see all the details, including the job description, requirements, and company information.
+                    </li>
+                    <li>
+                        <strong>Prepare Your Application:</strong> Make sure your resume and cover letter are up to date and tailored to the specific job you're applying for.
+                    </li>
+                     <li>
+                        <strong>Apply:</strong> Click on the "Apply Now" button. You may be asked to upload your resume and cover letter, or you may be redirected to the employer's website.
+                    </li>
+                     <li>
+                       <strong>Track Your Applications:</strong> You can track the status of your applications on your profile dashboard. This will help you stay organized and know when to follow up. 
+                     </li>
+
+                     <li>
+                       <strong>Stay Informed:</strong> Make sure to regularly check your email to get information about your application status.
+                    </li>
+                </ol>
+
+                <p>
+                    We are here to help you land your dream job. Don't hesitate to contact us if you have any questions or need assistance during the application process.
+                </p>
+            </div>
+        </div>
+
 
      </div>
 

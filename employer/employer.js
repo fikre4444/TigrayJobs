@@ -27,6 +27,8 @@ function displayUserData(){
         profilePicture: info.profilePicture
     };
 
+    console.log(employerState);
+
     var dd = document.createElement("div");
     dd.setAttribute("class", "contain");
     var im = document.createElement("img");
@@ -46,13 +48,6 @@ function displayUserData(){
 
 }
 
-function logOut(){
-    sessionStorage.removeItem("employerInfo");
-    sessionStorage.removeItem("employerCreds");
-    sessionStorage.removeItem("loggedIn");
-    window.location.href="../index.html";
-}
-
 function checkCreds(){
     if(!sessionStorage.getItem("employerCreds")){ //if the seekerCreds is null (if not logged in) then go back to index.html automatically
         window.location.href="../index.html";
@@ -62,7 +57,6 @@ function checkCreds(){
 window.onload = function(){
     checkCreds();
     displayUserData();
-    document.getElementById("logoutButton").addEventListener("click", logOut);
     console.log("employer.js is running");
 }
 
