@@ -16,6 +16,16 @@
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             transition-duration: 0.4s;
         }
+
+        .loader {
+            width: 50px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            border: 8px solid lightblue;
+            border-right-color: orange;
+            animation: l2 1s infinite linear;
+        }
+        @keyframes l2 {to{transform: rotate(1turn)}}
     </style>
 </head>
 <body>
@@ -86,7 +96,7 @@
             </div>
             
             <div id="jobsHolder">
-                Loading....
+                <div class="loader"></div>
             </div>         
         </div>
 

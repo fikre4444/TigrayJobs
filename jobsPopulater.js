@@ -169,58 +169,19 @@ function addOtherDetails(jobHolder, job){
 }
 
 function getPostedAgo(givenDate){ //gets the how long it was posted ago.
-    
     var currentDate = new Date();
     var diff = currentDate.getTime() - givenDate.getTime();
     var diffDays = Math.round(diff/(1000*3600*24));
     var diffHours = Math.round(diff/(1000*3600));
     var diffMinutes = Math.round(diff/(1000*60));
-    var posted = "Posted ";
-    if(diffDays >= 1){
-        if(diffDays == 1){
-            posted += "1 day ago.";
-        }else{
-            posted += diffDays + " days ago.";
-        }
-    }
-    else if(diffHours >= 1){
-        if(diffHours == 1){
-            posted += "1 hour ago.";
-        }else{
-            posted += diffHours + " hours ago.";
-        }
-    }
-    else if(diffMinutes >= 0) {
-        if(diffMinutes == 0){
-            posted += "now.";
-        }
-        else if(diffMinutes == 1){
-            posted += "1 minute ago."
-        }else {
-            posted += diffMinutes + " minutes ago.";
-        }
-    }
-    else {
-        posted += "in the future."
-    }
-    return posted;
+    if(diffDays >= 1) return diffDays == 1 ? `Posted 1 day Ago` : `Posted ${diffDays} days ago.`;
+    else if(diffHours >= 1) return diffHours == 1 ? 'Posted 1 hour ago' : `Posted ${diffHours} hours ago.`;
+    else if(diffMinutes >= 1) return diffMinutes == 1 ? 'Posted 1 minute ago' : `Posted ${diffMinutes} minutes ago`;
+    return 'Posted Now!';
 }
 
-function sortJobs(jobs){
-    //sorts the jobs so that the first one that is seen is the latest which has the largest millisecond and hence is sorted in descending
-    var jobsArray = Object.keys(jobs).map((key) => [key, jobs[key]]);
-    for(var i = 0; i < jobsArray.length-1; i++){
-        for(var j = 0; j < jobsArray.length-i-1; j++){
-            if(jobsArray[j][0] < jobsArray[j+1][0]){
-                var temp = jobsArray[j];
-                jobsArray[j] = jobsArray[j+1];
-                jobsArray[j+1] = temp;
-            }
-        }
-    }
-    var newJobs = {};
-    for(var i = 0; i < jobsArray.length; i++){
-        newJobs[jobsArray[i][0]] = jobsArray[i][1];
-    }
-    return newJobs;
+function sortJobs(jobs) {
+    return Object.fromEntries(
+        Object.entries(jobs).sort(([keyA], [keyB]) => keyB - keyA)
+    );
 }
