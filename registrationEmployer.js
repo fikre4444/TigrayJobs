@@ -11,6 +11,7 @@ const database = getDatabase();
 const auth = getAuth();                                                 
 
 var allFormValues, profilePictureUrl;
+let loading;
 //after loading - add event listener for the registration, and for the pop up close button
 window.onload = function(){
     var form = document.getElementById("registrationForm");
@@ -23,6 +24,8 @@ window.onload = function(){
 
     var profilePicture = document.getElementById("profilePicture");
     profilePicture.addEventListener("change", getFile);
+    loading = document.querySelector("#loading");
+
 }
 
 
@@ -105,6 +108,7 @@ function writeUserData() {
         if(error.code == 'auth/email-already-in-use'){
             alert("Sorry! This email is already in use. Try another.");
         }
+        loading.classList.remove("show");
     });  
 
 }
@@ -205,6 +209,10 @@ function generateErrorMessage(msg){
 
 function handleRegistration(event){
     event.preventDefault(); //prevent the default submission behavior
+    console.log(loading);
+    console.log(loading.classList);
+    loading.classList.add("show");
+    console.log(loading.classList);
     console.log("staring now");
     var validated = validateUserInput();
     if(validated){

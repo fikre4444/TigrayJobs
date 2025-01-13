@@ -18,6 +18,9 @@ window.onload = function(){
 
 function handleLogin(event){
     event.preventDefault();
+    const loginForm = document.querySelector("#loginForm");
+    const loading = document.querySelector("#loading");
+    loading.classList.add("show");
     console.log("checking login credentials")
     var email = document.getElementById("email");
     var password = document.getElementById("password");
@@ -41,6 +44,7 @@ function handleLogin(event){
         });
     }).catch((error)=>{
         if(error.code == 'auth/invalid-credential'){
+            loading.classList.remove("show");
             alert("Either the Email or Password is wrong. Please try again!");
         }
     });

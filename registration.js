@@ -12,6 +12,7 @@ const database = getDatabase();
 const auth = getAuth();                                                 
 
 var allFormValues, profilePictureUrl;
+let loading;
 //after loading - add event listener for the registration, and for the pop up close button
 window.onload = function(){
     var form = document.getElementById("registrationForm");
@@ -67,7 +68,6 @@ function writeUserData() {
     //get the email and password from the formValues array
     var email = allFormValues[2];
     var password = allFormValues[5];
-
     createUserWithEmailAndPassword(auth, email, password)
     .then((credentials) => {        
         var userId = credentials.user.uid;
@@ -108,6 +108,7 @@ function writeUserData() {
     })
     .catch((error) => {
         if(error.code == 'auth/email-already-in-use'){
+        loading.classList.remove("show");
             alert("Sorry! This email is already in use. Try another.");
         }
     });  
@@ -210,6 +211,10 @@ function generateErrorMessage(msg){
 
 function handleRegistration(event){
     event.preventDefault(); //prevent the default submission behavior
+    loading = document.querySelector("#loading");
+    console.log(loading);
+    console.log(loading.classList);
+    loading.classList.add("show");
     console.log("staring now");
     var validated = validateUserInput();
     if(validated){
